@@ -13,8 +13,8 @@ document.getElementById('calculate-button').addEventListener('click', function()
         <div class="result-item"><strong>模型参数:</strong> ${param}B </div>
         <div class="result-item"><strong>精度:</strong> ${precision}</div>
         <div class="result-item"><strong>算力卡:</strong> ${getHardwareDisplayName(hardware)}</div>
-        <div class="result-item"><strong>模型权重显存需求: </strong>${calculateWeightMemory(param, precision)}G</div>
-        <div class="result-item"><strong>总显存需求: </strong> ${calculateTotalMemory(param, precision)}G</div>
+        <div class="result-item"><strong>模型权重显存需求: </strong>${calculateWeightMemory(param, precision)}GB</div>
+        <div class="result-item"><strong>总显存需求: </strong> ${calculateTotalMemory(param, precision)}GB</div>
         <div class="result-item"><strong>预估算力卡需求:</strong> ${calculateCompute(param, precision, hardware)} 张</div>
         <div class="result-item"><strong>预估算力机台数:</strong> ${calculateMachineCount(param, precision, hardware)} 台</div>
     `;
