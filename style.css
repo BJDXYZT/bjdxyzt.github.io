@@ -109,3 +109,44 @@ select:focus {
         font-size: 1.4rem;
     }
 }
+
+@media (max-width: 480px) {
+    body {
+        padding: 1rem;
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 1.2rem;
+        border-radius: 1rem;
+        margin: 0;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.8rem;
+    }
+
+    .input-section {
+        gap: 0.8rem;
+        margin: 1.2rem 0;
+    }
+
+    select {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    #calculate-button {
+        font-size: 1rem;
+        padding: 0.9rem;
+        margin: 1.5rem 0;
+    }
+
+    .results-section {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+}
