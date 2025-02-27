@@ -98,7 +98,7 @@ select:focus {
 @media (max-width: 768px) {
     .container {
         padding: 1.5rem;
-        margin: 1rem;
+        margin: 0.3rem;
     }
 
     .input-section {
