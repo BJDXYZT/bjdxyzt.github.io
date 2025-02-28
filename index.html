@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,13 +14,13 @@
             <div class="input-section">
                 <label for="param">模型参数量:</label>
                 <select id="param">
-                    <option value="671">671B</option>
-                    <option value="1.5">1.5B</option>
-                    <option value="7">7B</option>
-                    <option value="8">8B</option>
-                    <option value="14">14B</option>
-                    <option value="32">32B</option>
-                    <option value="70">70B</option>
+                    <option value="671">DeepSeek-R1/V3-671B</option>
+                    <option value="1.5">DeepSeek-R1-1.5B</option>
+                    <option value="7">DeepSeek-R1-7B</option>
+                    <option value="8">DeepSeek-R1-8B</option>
+                    <option value="14">DeepSeek-R1-14B</option>
+                    <option value="32">DeepSeek-R1-32B</option>
+                    <option value="70">DeepSeek-R1-70B</option>
                 </select>
             </div>
     
@@ -44,11 +45,24 @@
                     <option value="nvidia_a100_40g">NVIDIA A100(40G)</option>
                     <option value="nvidia_a100_80g">NVIDIA A100(80G)</option>
                     <option value="nvidia_a10">NVIDIA A10</option>                    
-                    <option value="nvidia_h20">NVIDIA H20</option>                    
-                    <option value="nvidia_h800">NVIDIA H800</option>
-                    <option value="nvidia_l40s">NVIDIA L40S</option>
-                    <option value="nvidia_rtx4090">NVIDIA RTX 4090</option>
                 </select>
+            </div>
+
+            <div class="input-section">
+                <label for="context">上下文长度:</label>
+                <select id="context">
+                    <option value="4096">4K(4096)</option>
+                    <option value="8192">8K(8192)</option>
+                    <option value="16384">16K(16384)</option>
+                    <option value="32768">32K(32768)</option>
+                    <option value="65536">64K(65536)</option>
+                    <option value="131072">128K(131072)</option>
+                </select>
+            </div>
+
+            <div class="input-section">
+                <label for="concurrency">并发量:</label>
+                <input type="text" id="concurrency" placeholder="请输入并发量">
             </div>
     
             <button id="calculate-button">计算算力需求</button>
@@ -58,12 +72,14 @@
                 <br>
                 <p class="result-item" style="font-size: smaller; color: gray;">* 显存和算力均为估算值，实际情况可能因多种因素而异。</p>
                 <p class="result-item" style="font-size: smaller; color: gray;">* 请检查所选算力卡是否支持参数精度类型。</p>
-                <p class="result-item" style="font-size: smaller; color: gray;">* 推理显存估算公式：总显存需求 = 模型权重显存需求 * 1.2（经验值）</p>
+                <p class="result-item" style="font-size: smaller; color: gray;">* 推理显存估算公式：总显存需求 = （模型权重显存需求 + KV cache 显存需求） * 1.2（经验值）</p>
                 <p class="result-item" style="font-size: smaller; color: gray;">* 算力卡数量为满足显存需求的最少估算，实际部署可能需要更多卡以满足性能需求。</p>
                 <p class="result-item" style="font-size: smaller; color: gray;">* 算力机台数假设 NVIDIA 和 华为昇腾 机器每台都包含 8 张算力卡。</p>
             </div>
         </div>
-        
+    
         <script src="./script.js"></script>
+    
+    
     </body>
 </html>
